@@ -14,10 +14,9 @@ app.use(express.json());
 
 // CORS for Netlify frontend
 app.use(cors({
-  origin: "https://wonderful-monstera-5169be.netlify.app",
-  methods: ["GET", "POST"],
-  credentials: true
+  origin: "*"
 }));
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
