@@ -6,8 +6,13 @@ import nodemailer from "nodemailer";
 
 dotenv.config();
 const app = express();
+const cors = require("cors");
 
-app.use(cors());
+app.use(cors({
+  origin: "https://wonderful-monstera-5169be.netlify.app",
+  methods: ["GET", "POST"],
+}));
+
 app.use(express.json());
 
 // MongoDB connection
