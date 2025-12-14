@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Responsive Restaurant Website using HTML,CSS</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="#"><img src="images/logo1.png" alt="" opacity="undefined"></a>
+                </div>
+                <nav>
+                    <div class="btn">
+                        <i class="fas fa-times close-btn"></i>
+                    </div>
+                    <li><a href="#showcase">Home</a></li>
+                    <li><a href="#chef">About</a></li>
+                    <li><a href="#food_lover">Menu</a></li>
+                    <li><a href="#reservation_tbl">Reservations</a></li>
+                    <li><a href="#upcoming_events">Blog</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </nav>
+                <div class="btn">
+                    <i class="fas fa-bars menu-btn"></i>
+                </div>
+             </div>
+        </div>
+    </header>
+
+    <main id="showcase">
+        <div class="container">
+            <div class="content">
+                <img src="images/logo1.png" alt="">
+                <h2>SUPRISE YOUR TABLE</h2>
+                <h3>Fine Food + Drinks</h3>
+            </div>
+        </div>
+    </main>
+
+    <aside id="sp-offer">
+        <div class="container">
+            <div class="sp-content">
+                <div class="left_side_content">
+                    <div class="headings">
+                        <h3>From The Menu</h3>
+                        <h2>SPECIAL OFFERS</h2>
+                    </div>
+                    <div class="imgs_content">
+                        <div class="imgs">
+                            <img src="images/pulao.jpg" alt="" width="65px" height="60px">
+                            <div class="content_for_img">
+                                <h4>Raju Gari Kodi Pulao</h4>
+                                <p>Raju Gari Kodi Pulao is a spicy, aromatic Andhra-style chicken rice dish cooked with ghee, herbs, and flavorful masala.</p>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <p>₹220</p>
+                        </div>
+                    </div>
+                    <div class="imgs_content">
+                        <div class="imgs">
+                            <img src="images/ptikka.jpg" alt="" width="60px" height="60px">
+                            <div class="content_for_img">
+                                <h4>Paneer Tikka Biryani</h4>
+                                <p>Paneer Tikka Biryani blends spicy grilled paneer with fragrant rice and spices, creating a delicious, smoky, and satisfying vegetarian meal.</p>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <p>₹200</p>
+                        </div>
+                    </div>
+                    <div class="imgs_content">
+                        <div class="imgs">
+                            <img src="images/fsalad.jpg" alt="" width="60px" height="60px">
+                            <div class="content_for_img">
+                                <h4>Fruit Salad with ice-cream</h4>
+                                <p>Fruit salad with ice cream is a refreshing dessert combining fresh fruits and creamy ice cream for a sweet, juicy, and chilled treat.</p>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <p>₹150</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_side_content">
+                    <div class="img_right_side">
+                        <img src="images/food.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div id="reservation_tbl">
+        <div class="container">
+            <div class="form_data">
+                <h3 class="normal_heading">Your Table</h3>
+                <h2 class="main_heading">Reservation Now..</h2>
+                <form action="#">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Contact">
+                    <input type="email" placeholder="Email">
+                    <input type="number" placeholder="Number of Persons">
+                    <input type="date" placeholder="Book Date">
+                    <input type="text" placeholder="Your Time">
+                    <textarea name="" id="" cols="10" rows="10" placeholder="Message Request"></textarea>
+                    <button type="button">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section id="deal-today">
+        <div class="container swiper mySwiper">
+            <h3 class="normal_heading-1">Deal Today</h3>
+            <h2 class="main_heading">TODAY SPECIAL DISH</h2>
+            <div class="card-content swiper-wrapper">
+                <div class="cards swiper-slide">
+                    <img src="images/thali.jpg" alt="" width="180px" height="180px">
+                    <h4>Veg Thali</h4>
+                    <p>A veg thali is a wholesome Indian platter with rice, roti, dal, curry, vegetables, pickle, curd, and dessert.</p>
+                    <p class="price">Only ₹200</p>
+                </div>
+                <div class="cards swiper-slide">
+                    <img src="images/keema.jpeg" alt="" width="180px" height="180px">>
+                    <h4>Mutton Keema Biryani</h4>
+                    <p>Mutton keema biryani is a flavorful dish made with spiced minced meat, basmati rice, herbs, and aromatic Indian spices.</p>
+                    <p class="price">Only ₹300</p>
+                </div>
+                <div class="cards swiper-slide">
+                    <img src="images/delight.jpg" alt="" width="180px" height="180px">>
+                    <h4>Apricot Delight</h4>
+                    <p>Apricot delight is a sweet dessert made with dried apricots, cream, sugar, and nuts, offering a rich fruity flavor.</p>
+                    <p class="price">Only ₹250</p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="food_lover">
+        <div class="container">
+            <h3 class="normal_heading-1">Food Lovers</h3>
+            <h2 class="main_heading">RESTAURANT MENU</h2>
+            <div class="food_lover_container">
+                <div class="btn-container">
+                    <button type="button" class="btn-cat active_btn" data-id="all">All Dishes</button>
+                    <button type="button" class="btn-cat" data-id="Appetizers">Appetizers</button>
+                    <button type="button" class="btn-cat" data-id="Main Course">Main Course</button>
+                    <button type="button" class="btn-cat" data-id="Desserts">Desserts</button>
+                </div>
+                <div class="menu_items_container"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customer_feedback">
+        <div class="container swiper mySwiper">
+            <h3 class="normal_heading-1">Food Lovers</h3>
+            <h2 class="main_heading">CUSTOMER FEEDBACK</h2>
+            <div class="customer_cards_container swiper-wrapper">
+                <div class="customer_card swiper-slide">
+                    <img src="images/cruise.jpg" alt="" width="80px" height="80px">
+                    <p>This restaurant offers a wonderful dining experience with delicious food, warm ambiance, and courteous staff. Every dish was perfectly cooked, leaving us fully satisfied and eager to return again soon.</p>
+                    <p class="name">Tom Cruise</p>
+                </div>
+                <div class="customer_card swiper-slide">
+                    <img src="images/raja.jpg" alt="" width="80px" height="80px">
+                    <p>The restaurant delivers an exceptional experience with flavorful food, elegant ambiance, and friendly service. Each dish is thoughtfully prepared, making it an ideal spot for both casual meals and special occasions.</p>
+                    <p class="name">S S Rajamouli</p>
+                </div>
+                <div class="customer_card swiper-slide">
+                    <img src="images/rgv.jpg" alt="" width="80px" height="80px">
+                    <p>The restaurant offers delicious cuisine, excellent service, and a cozy ambiance. Every dish was flavorful, and the staff made the experience truly enjoyable and memorable.</p>
+                    <p class="name">Ram Gopal Varma</p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="upcoming_events">
+        <div class="container swiper mySwiper">
+            <h3 class="normal_heading-1">Month of August</h3>
+            <h2 class="main_heading">UPCOMING RECIPES</h2>
+            <div class="events_cards_container swiper-wrapper">
+                <div class="events_card swiper-slide">
+                    <img src="images/up1.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Aromatic veg biryani packed with flavorful spices, tender vegetables, and fragrant basmati rice—perfect for a satisfying and wholesome meal.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                 <div class="events_card swiper-slide">
+                    <img src="images/up2.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Soft, thin, and expertly cooked, rumali roti pairs perfectly with rich curries, offering a delightful melt-in-mouth texture and authentic taste.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                 <div class="events_card swiper-slide">
+                    <img src="images/up3.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Schezwan veg noodles are spicy, flavorful, and loaded with crunchy vegetables, offering a perfect fusion of heat and taste in every bite.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="events_card swiper-slide">
+                    <img src="images/up4.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Chicken dum biryani is a rich, aromatic dish with tender chicken, fragrant basmati rice, and bold spices cooked to perfection in layers.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                 <div class="events_card swiper-slide">
+                    <img src="images/up5.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Chilly prawns are spicy, crispy, and flavorful, coated in a tangy sauce with garlic, peppers, and aromatic Indo-Chinese seasonings.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                 <div class="events_card swiper-slide">
+                    <img src="images/up6.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Apollo fish is a spicy, tangy South Indian delicacy with crispy fried fish tossed in flavorful masala and herbs.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="events_card swiper-slide">
+                    <img src="images/up7.jpg" alt="" width="300px" height="325px">
+                    <div class="event_content">
+                        <p>Mixed scoops of ice cream offer a delightful blend of flavors and textures, combining creamy, fruity, and chocolaty tastes in every bite.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                 <div class="events_card swiper-slide">
+                    <img src="images/up8.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Waffles are golden, crispy on the outside, soft inside, and served with toppings like syrup, fruits, or ice cream for a sweet treat.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                 <div class="events_card swiper-slide">
+                    <img src="images/up9.jpg" alt="" width="300px" height="300px">
+                    <div class="event_content">
+                        <p>Crispy sweet puff pastry is light, flaky, and golden, filled or topped with sugar, offering a delightful melt-in-mouth dessert experience.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="static_counter">
+        <div class="container">
+            <div class="counters">
+                <div class="counter">
+                    <div class="num" data-ceil="291">291</div>
+                    <h2>Best Dishes</h2>
+                </div>
+                <div class="counter">
+                    <div class="num" data-ceil="710">710</div>
+                    <h2>Awards Won</h2>
+                </div>
+                <div class="counter">
+                    <div class="num" data-ceil="163">163</div>
+                    <h2>Chefs</h2>
+                </div>
+                <div class="counter">
+                    <div class="num" data-ceil="212">212</div>
+                    <h2>Daily Customers</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chef">
+        <div class="container swiper mySwiper">
+            <h3 class="normal_heading-1">Chef Team</h3>
+            <h2 class="main_heading">BEST CHEFS FOR YOU</h2>
+            <div class="chef_container swiper-wrapper">
+                <div class="chef_cards swiper-slide">
+                    <img src="images/chef1.jpg" width="320" height="450">
+                    <div class="chef_content">
+                        <h2>Sanjeev Kapoor</h2>
+                        <p class="position">Executive Chef</p>
+                        <div class="social_icons">
+                            <a href="https://www.facebook.com/ChefSanjeevKapoor" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                            <a href="https://twitter.com/SanjeevKapoor" target="_blank"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                            <a href="https://www.instagram.com/sanjeevkapoor" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                            <a href="https://in.pinterest.com/sanjeevkapoor" target="_blank"><i class="fa-brands fa-pinterest fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chef_cards swiper-slide">
+                    <img src="images/chef2.jpg" width="320" height="450">
+                    <div class="chef_content">
+                        <h2>Vikas Khanna</h2>
+                        <p class="position">Head Chef</p>
+                        <div class="social_icons">
+                            <a href="https://www.facebook.com/VikasKhannaGroup" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                            <a href="https://twitter.com/TheVikasKhanna" target="_blank"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                            <a href="https://www.instagram.com/vikaskhannagroup" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                            <a href="https://www.pinterest.com/vikaskhannagroup" target="_blank"><i class="fa-brands fa-pinterest fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chef_cards swiper-slide">
+                    <img src="images/chef3.jpg" width="320" height="450">
+                    <div class="chef_content">
+                        <h2>Manish Mehrotra</h2>
+                        <p class="position">Sous Chef</p>
+                        <div class="social_icons">
+                            <a href="https://www.facebook.com/manish.mehrotra.568" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                            <a href="https://www.instagram.com/manish.mehrotra_official" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+               <div class="chef_cards swiper-slide">
+                    <img src="images/chef4.jpg" width="320" height="450">
+                    <div class="chef_content">
+                        <h2>Ritu Dalmia</h2>
+                        <p class="position">Station Chef</p>
+                        <div class="social_icons">
+                            <a href="https://www.facebook.com/ritudalmiaofficial" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                            <a href="https://www.instagram.com/ritudalmia" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="container">
+            <div class="footer_container">
+                <div class="about_us">
+                    <h2><img src="images/logo1.png" alt=""></h2>
+                    <p>Our restaurant offers a perfect blend of delicious cuisine, cozy ambiance, and exceptional service.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="opening_hours">
+                    <h2>Opening Hours</h2>
+                    <p class="day">SUNDAY: <span>--------10.00AM 12.00AM</span></p>
+                    <p class="day">MON-SAT: <span>--------10.00AM 10.00PM</span></p>
+                </div>
+                <div class="contact_us">
+                    <h2>Contact Us</h2>
+                    <h3>GET IN TOUCH</h3>
+                    <p>+91-9989266824</p>
+                    <p class="add">Address</p>
+                    <p>Near Kotha Bus Stand, Eluru, West Godavari, Andhra Pradesh - 533041</p>
+                    <p class="email">Email</p>
+                    <p>order@foodlovers.com or sales@example.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Copyright 2025 &copy; Food Lovers Restaurant</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
