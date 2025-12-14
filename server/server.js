@@ -14,8 +14,10 @@ app.use(express.json());
 
 // CORS for Netlify frontend
 app.use(cors({
-  origin: "*"
+  origin: "https://wonderful-monstera-5169be.netlify.app",
+  methods: ["POST"],
 }));
+
 
 
 // MongoDB Connection
