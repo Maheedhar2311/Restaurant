@@ -44,32 +44,44 @@ const Reservation = mongoose.model("Reservation", reservationSchema);
 // Reservation endpoint
 app.post("/reserve", async (req, res) => {
   try {
-    const reservation = new Reservation(req.body);
+    console.log("Incoming reservation:", req.body);
+
+    const { name, contact, email, persons, date, time, message } = req.body;
+
+    // Save to DB
+    const reservation = new Reservation({
+      name,
+      contact,
+      email,
+      persons,
+      date,
+      time,
+      message,
+    });
+
     await reservation.save();
 
     // Send email
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      subject: "New Table Reservation",
+      text: `
+Name: ${name}
+Contact: ${contact}
+Email: ${email}
+Persons: ${persons}
+Date: ${date}
+Time: ${time}
+Message: ${message}
+      `,
     });
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: req.body.email,
-      subject: "Table Reservation Confirmation",
-      text: `Hello ${req.body.name}, your table has been successfully reserved!`
-    };
-
-    await transporter.sendMail(mailOptions);
-
-    res.json({ success: true, message: "Reservation saved & email sent" });
+    res.status(200).json({ message: "Reservation successful" });
 
   } catch (error) {
     console.error("Reservation error:", error);
-    res.status(500).json({ success: false, message: "Server error" });
+    res.status(500).json({ error: "Server error" });
   }
 });
 
@@ -77,3 +89,4 @@ app.post("/reserve", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
