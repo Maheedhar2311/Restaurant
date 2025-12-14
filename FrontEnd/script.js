@@ -207,13 +207,14 @@ bookNowBtn.addEventListener('click', async function(e) {
 
     // send to backend
     try {
-        const res = await fetch("https://restaurant-hx2m.onrender.com/reserve", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name, contact, email, persons, date, time, message
-            })
-        });
+        const res = await fetch("https://restaurant-hx2m.onrender.com/api/reserve", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name, contact, email, persons, date, time, message
+        })
+    });
+
 
         const data = await res.json();
         if (data.success) {
