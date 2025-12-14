@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Reservation Schema
 const reservationSchema = new mongoose.Schema({
   name: String,
-  phone: String,
+  contact: String,
   email: String,
   persons: Number,
   date: String,
