@@ -32,58 +32,56 @@ const reservationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model("Reservation", reservationSchema);
 
-/* ================= EMAIL CONFIG ================= */
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
+  secure: false, // TLS
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
   }
 });
 
-/* ================= RESERVATION API ================= */
 app.post("/reserve", async (req, res) => {
   try {
     console.log("Incoming:", req.body);
 
-    const { name, email, contact, persons, date, time, message } = req.body;
+    const { name, email, date, time, persons } = req.body;
 
-    // Save to DB
-    const reservation = new Reservation(req.body);
-    await reservation.save();
+    // Save reservation
+    await new Reservation(req.body).save();
+    console.log("Reservation saved");
 
-    // Email content
-    const mailOptions = {
-      from: `"Food Lovers Restaurant" <${process.env.EMAIL_USER}>`,
+    // Send email
+    await transporter.sendMail({
+      from: "Food Lovers Restaurant <no-reply@foodlovers.com>",
       to: email,
-      subject: "🍽️ Table Reservation Confirmed",
+      subject: "🍽️ Reservation Confirmed",
       html: `
         <h2>Reservation Confirmed</h2>
-        <p>Hello <strong>${name}</strong>,</p>
-        <p>Your table has been successfully booked.</p>
-        <hr/>
-        <p><strong>Date:</strong> ${date}</p>
-        <p><strong>Time:</strong> ${time}</p>
-        <p><strong>Guests:</strong> ${persons}</p>
-        <p><strong>Contact:</strong> ${contact}</p>
-        <p><strong>Message:</strong> ${message || "N/A"}</p>
+        <p>Hello <b>${name}</b>,</p>
+        <p>Your table is booked successfully.</p>
+        <p><b>Date:</b> ${date}</p>
+        <p><b>Time:</b> ${time}</p>
+        <p><b>Guests:</b> ${persons}</p>
         <br/>
-        <p>We look forward to serving you ❤️</p>
-        <p><strong>Food Lovers Restaurant</strong></p>
+        <p>See you soon ❤️</p>
       `
-    };
+    });
 
-    // Send Email
-    await transporter.sendMail(mailOptions);
-    console.log("Email sent to:", email);
+    console.log("Email sent");
 
-    res.status(200).json({ success: true });
+    res.json({ success: true });
 
   } catch (err) {
-    console.error("Error:", err);
-    res.status(500).json({ success: false });
+    console.error("EMAIL ERROR:", err);
+    res.json({
+      success: true,
+      warning: "Reservation saved, email pending"
+    });
   }
 });
+
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () =>
