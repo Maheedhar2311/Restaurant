@@ -54,7 +54,7 @@ app.post("/reserve", async (req, res) => {
 
     // Send email
     await transporter.sendMail({
-      from: "Food Lovers Restaurant <no-reply@foodlovers.com>",
+      from: "Food Lovers <noreply@brevo.com>",
       to: email,
       subject: "🍽️ Reservation Confirmed",
       html: `
