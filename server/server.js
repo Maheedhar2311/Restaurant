@@ -6,28 +6,19 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
 
-// Middleware
-app.use(express.json());
-
-// CORS for Netlify frontend
 app.use(cors({
-  origin: "https://wonderful-monstera-5169be.netlify.app",
-  methods: ["POST"],
+  origin: "*",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
 }));
 
+app.use(express.json());
 
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error("Mongo error:", err));
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("MongoDB connected"))
-.catch(err => console.error("MongoDB Error:", err));
-
-// Reservation Schema
 const reservationSchema = new mongoose.Schema({
   name: String,
   contact: String,
@@ -40,56 +31,21 @@ const reservationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model("Reservation", reservationSchema);
 
-// Reservation endpoint
 app.post("/reserve", async (req, res) => {
   try {
-    console.log("Incoming reservation:", req.body);
+    console.log("Incoming:", req.body);
 
-    const { name, contact, email, persons, date, time, message } = req.body;
-
-    // Save to DB
-    const reservation = new Reservation({
-      name,
-      contact,
-      email,
-      persons,
-      date,
-      time,
-      message,
-    });
-
+    const reservation = new Reservation(req.body);
     await reservation.save();
 
-    // Send email
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: "New Table Reservation",
-      text: `
-        Name: ${name}
-        Contact: ${contact}
-        Email: ${email}
-        Persons: ${persons}
-        Date: ${date}
-        Time: ${time}
-        Message: ${message}
-      `,
-    });
-
-    res.status(200).json({ 
-        succes : true,
-        message: "Reservation successful" });
-
-  } catch (error) {
-    console.error("Reservation error:", error);
-    res.status(500).json({ 
-        success : false,
-        message: "Server error" });
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Save error:", err);
+    res.status(500).json({ success: false });
   }
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () =>
+  console.log(`Server running on port ${PORT}`)
+);
