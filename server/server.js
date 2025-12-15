@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import nodemailer from "nodemailer";
 
 dotenv.config();
 
@@ -67,21 +66,25 @@ app.post("/reserve", async (req, res) => {
       to: process.env.EMAIL_USER,
       subject: "New Table Reservation",
       text: `
-Name: ${name}
-Contact: ${contact}
-Email: ${email}
-Persons: ${persons}
-Date: ${date}
-Time: ${time}
-Message: ${message}
+        Name: ${name}
+        Contact: ${contact}
+        Email: ${email}
+        Persons: ${persons}
+        Date: ${date}
+        Time: ${time}
+        Message: ${message}
       `,
     });
 
-    res.status(200).json({ message: "Reservation successful" });
+    res.status(200).json({ 
+        succes : true,
+        message: "Reservation successful" });
 
   } catch (error) {
     console.error("Reservation error:", error);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ 
+        success : false,
+        message: "Server error" });
   }
 });
 
